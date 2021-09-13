@@ -1,6 +1,6 @@
 # Ansible Role: Swap Partition
 
-An [Ansible Galaxy](https://galaxy.ansible.com/) role for using an existing block device node to create a swap partition.
+An [Ansible Galaxy](https://galaxy.ansible.com/) role for creating a swap partition using an existing block device node.
 
 ## Requirements
 
