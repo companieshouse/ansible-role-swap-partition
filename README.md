@@ -12,7 +12,7 @@ An [Ansible Galaxy](https://galaxy.ansible.com/) role for using an existing bloc
 
 Only the single `swap_partition_device_node` path variable is mandatory, all other variables are optional and have sensible default values (see `defaults/main.yml`):
 
-```
+```yaml
 swap_partition_device_node: /dev/xvdb
 ```
 
@@ -22,19 +22,19 @@ swap_partition_device_node: /dev/xvdb
 
 To specify mount options for the swap device:
 
-```
+```yaml
 swap_partition_mount_options: ...
 ```
 
 To disable the swap partition if it was previously enabled (the `fstab` entry will be removed if it exists and the swap partition disabled):
 
-```
+```yaml
 swap_partition_enabled: no
 ```
 
 ## Example Requirements File
 
-```yml
+```yaml
 - src: https://github.com/companieshouse/ansible-role-swap-partition
   name: swap-partition
   version: "n.n.n"
@@ -42,7 +42,7 @@ swap_partition_enabled: no
 
 ## Example Playbook
 
-```yml
+```yaml
     - hosts: all
       roles:
         - swap-partition
