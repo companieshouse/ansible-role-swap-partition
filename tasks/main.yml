@@ -1,0 +1,22 @@
+---
+
+- stat:
+    path: "{{ swap_partition_device_node }}"
+  register: device_node_result
+
+- name: Check for presence of block device node
+  assert:
+    that:
+      - device_node_result.stat.isblk is defined
+    fail_msg: "Device node {{ swap_partition_device_node }} does not exist"
+    success_msg: "Device node '{{ swap_partition_device_node }}' exists"
+
+- name: Check current swap status
+  command: swapon -s
+  register: swap_status_result
+
+- include_tasks: disable.yml
+  when: not swap_partition_enabled
+
+- include_tasks: enable.yml
+  when: swap_partition_enabled

@@ -1,0 +1,13 @@
+---
+
+- name: Remove swap partition from filesystem table
+  mount:
+    path: swap
+    src: "{{ swap_partition_device_node }}"
+    fstype: swap
+    opts: "{{ swap_partition_mount_options }}"
+    state: absent
+
+- name: Disable swap partition
+  command: swapoff {{ swap_partition_device_node }}
+  when: swap_partition_device_node in swap_status_result.stdout

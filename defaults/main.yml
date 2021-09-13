@@ -1,0 +1,4 @@
+---
+
+swap_partition_enabled: yes
+swap_partition_mount_options: defaults

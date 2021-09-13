@@ -1,0 +1,17 @@
+---
+
+- name: Format swap partition
+  command: "mkswap {{ swap_partition_device_node }}"
+  when: swap_partition_device_node not in swap_status_result.stdout
+
+- name: Add swap partition to filesystem table
+  mount:
+    path: swap
+    src: "{{ swap_partition_device_node }}"
+    fstype: swap
+    opts: "{{ swap_partition_mount_options }}"
+    state: present
+
+- name: Enable swap partition
+  command: swapon {{ swap_partition_device_node }}
+  when: swap_partition_device_node not in swap_status_result.stdout
