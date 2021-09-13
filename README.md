@@ -36,7 +36,7 @@ swap_partition_enabled: no
 
 ```yml
 - src: https://github.com/companieshouse/ansible-role-swap-partition
-  name: swap-device
+  name: swap-partition
   version: "n.n.n"
 ```
 
