@@ -1,6 +1,7 @@
 dependencies: []
 
 galaxy_info:
+  role_name: swap-partition
   author: Companies House
   description: Create a swap partition using an existing block device node
   license: MIT
